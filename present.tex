@@ -1,13 +1,15 @@
 \documentclass[]{beamer}
-\usetheme[]{paloalto}
-%\usetheme[]{}
+%\usetheme[]{paloalto}
+\usetheme[]{}
 
 
 \usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{multimedia}
 
 \setbeamertemplate{footline}[frame number]
 
-\usepackage{graphicx}
+
 
 \title{
 Word space models with a small data set
@@ -33,17 +35,58 @@ Word space models with a small data set
 
 
 \begin{frame}
+	Describe the following event!
+\end{frame}
+
+\begin{frame}
+	% Check if works!
+	\movie[width=15cm,height=10cm,poster,externalviewer]{click here}{pgm_paqtoi_01.avi}
+\end{frame}
+
+\begin{frame}
 	\frametitle{Overview}
 	\tableofcontents
 \end{frame}
 
 
-
-\section{Background: Language and reality}
+\section{Background: what the study is about}
 
 
 \begin{frame}
-	\frametitle{Speakers of different languages talk differently about the same events}
+	\frametitle{An illustration: the event you just saw}
+	\begin{itemize}
+	\item Simple event, yet a lot of information
+	\item Speakers of different languages focus on different aspects
+	\item Typical examples in three languages: \pause
+	\item English: \emph{He \alert{pushes} a box \alert{up} the roof.} \pause
+	\item Swedish: \emph{Han \alert{puttar} ett paket \alert{uppf\"{o}r} ett tak.} 
+		\\(equivalent to English)\pause
+	\item Spanish: \emph{\alert{Sube} una caja al tejado.}
+		\\`He ascends a box to the roof.'
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Summing up: the difference}
+	\begin{table}
+		\begin{tabular}{r c c c}
+		Semantic component	& English/Swedish	& Spanish \\
+		\hline
+		Path: up			& Y				& Y \\
+		Manner in which agent \\moves box (pushing) & Y & N \\
+		\end{tabular}
+	\caption{Comparison of information expressed across languages}
+	\end{table}
+	\pause
+	\begin{center}
+	These systematic differences is what I'm interested in!
+	\end{center}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Main point}
 	\begin{itemize}
 		\item When we speak about the world we don't just describe it objectively
 		\item Talking about something is choosing \emph{what to say} among many possibilities
@@ -53,25 +96,23 @@ Word space models with a small data set
 \end{frame}
 
 
-
-
-\begin{frame}
-	\frametitle{The language we speak and the way we think}
-	\begin{itemize}
-		\item The language we speak affects the way we think.\pause
-		\item ``We dissect nature along lines laid down by our native language'' (Whorf 1956).\pause
-		\item well, maybe not that radical, but there probably is some type of effect \ldots
-	\end{itemize}
-\end{frame}
-
+%\begin{frame}
+%	\frametitle{The language we speak and the way we think}
+%	\begin{itemize}
+%		\item The language we speak affects the way we think.\pause
+%		\item ``We dissect nature along lines laid down by our native language'' (Whorf 1956).\pause
+%		\item well, maybe not that radical, but there probably is some type of effect \ldots
+%	\end{itemize}
+%\end{frame}
 
 
 \begin{frame}
 	\frametitle{Why is this relevant?}
 	\begin{itemize}
 		\item My field of research: second language acquisition
-		\item We all speak in a second language (right now)
-		\item How do we think in a second language?
+		\item We all speak in a second language (English right now)
+		\item Do we reorganize our semantic/conceptual categories when learning a new language?
+		\item Do we express ourselves as in our mother tongue, with the formal make-up of the second language?
 	\end{itemize}
 \end{frame}
 
@@ -89,445 +130,30 @@ Word space models with a small data set
 
 \begin{frame}
 	\frametitle{}
+	\begin{itemize}
+	\item 
+	\end{itemize}
+\end{frame}
+
+\section{Some analyses}
+
+
+
+\section{Questions}
+
+\begin{frame}
+	\frametitle{Validity of the approach}
 \end{frame}
 
 
-\section{The problem}
+\begin{frame}
+	\frametitle{Issues related to size of data set}
+\end{frame}
+
 
 \begin{frame}
-	\frametitle{Small data set}
+	\frametitle{}
 \end{frame}
 
 
 \end{document}
-
-
-
-%\begin{frame}
-%	%\frametitle{}
-%	\begin{itemize}
-%		\item
-%		Take a pen and a piece of paper\ldots
-%		\pause
-%		\item
-%		Read the following short text, whose last sentence is incomplete.
-%	Imagine and write down a suitable continuation.
-%	\end{itemize}	
-%\end{frame}
-%
-%
-%\begin{frame}
-%	\frametitle{Warm-up exercise 1}
-%	\pause
-%	``At restaurants, Alice loves taking her time to read the menu. The last time, she had hesitated so much between the two dishes that she finally had to ask the waitress to help her choose something from the menu.	
-%	In fact, she\ldots	
-%\end{frame}
-%
-%\begin{frame}
-%	\frametitle{Warm-up exercise 2}
-%	\pause
-%	``At restaurants, Peter loves taking his time to read the menu. The last time, he had hesitated so much between the two dishes that he finally had to ask the waiter to help him choose something from the menu.
-%	In fact, that man\ldots	
-%\end{frame}
-%
-%
-%\begin{frame}
-%	\frametitle{What was this all about?}
-%	\begin{itemize}
-%		\item In each exercise you had to choose among two possible referents:
-%		\pause
-%		\item Text 1
-%			\begin{itemize}
-%			\item She = Alice?
-%			\item She = the waitress? \pause
-%			\item How many chose each option?
-%			\end{itemize} \pause
-%		\item Text 2
-%			\begin{itemize}
-%			\item That man = Peter?
-%			\item That man = the waiter? \pause
-%			\item How many chose each option?
-%			\end{itemize}
-%	\end{itemize}
-%\end{frame}
-%
-%
-%\begin{frame}
-%	\frametitle{Two factors}
-%	\begin{itemize}
-%	\item Character type
-%		\begin{itemize}
-%		\item Main character (Alice)
-%		\item Subordinate character (the waitress)
-%		\end{itemize}
-%	\item Anaphor type
-%		\begin{itemize}
-%		\item Anaphoric pronoun (he/she)
-%		\item Demonstrative description (that woman)
-%		\end{itemize}
-%	\end{itemize}
-%\end{frame}
-%
-%
-%
-%
-%
-%
-%%%%%%%%%%%
-%
-%
-%
-%\section{Theoretical background}
-%
-%
-%\subsection{Anaphora and deixis}
-%
-%
-%\begin{frame}
-%	\frametitle{Anaphora and deixis}
-%	\begin{itemize}
-%	\item Anaphora and deixis are discourse procedures
-%	\item They allow the coordination of interlocutors' attention
-%	\item The discourse unfolds in a text (e.g. a conversation), and anaphora and deixis are used to construct, modify, and access the contents in that text
-%	\end{itemize}
-%\end{frame}
-%
-%
-%\begin{frame}
-%	\frametitle{Anaphora and deixis: prototypical functions}
-%	\begin{itemize}
-%	\item \textbf{Anaphora} maintains attention where it is already established
-%		\begin{itemize}
-%		\item ``That man is very tall. \emph{He} must have trouble buying clothes.''
-%		\end{itemize}
-%	\item \textbf{Deixis} permits interlocutor's attention to shift to a new referent
-%		\begin{itemize}
-%		\item ``Look at \emph{that car}!'' (In the middle of a conversation)
-%		\end{itemize}
-%	\end{itemize}	
-%\end{frame}
-%
-%
-%\subsection{Between anaphora and deixis}
-%
-%
-%\begin{frame}
-%	\frametitle{Between anaphora and deixis}
-%	\begin{itemize}
-%	\item However, most anaphoric and deictic expressions are not used exclusively with one function or the other.
-%	\item For example, the demonstrative \emph{that}:
-%		\begin{itemize}
-%		\item \textbf{Anaphoric} function: ``Peter dreaded Suzie's furies. \emph{That woman} was unpredictable.''
-%		\item \textbf{Deictic} function: ``Look at \emph{that girl}!''
-%		\item \textbf{Discourse-deictic} function: ``Peter pushed Suzie. \emph{That behaviour} shocked her.''
-%		\end{itemize}
-%	\end{itemize}	
-%\end{frame}
-%
-%
-%
-%\begin{frame}[fragile]
-%	\frametitle{Cornish's scale of anaphoricity and deicticity}
-%	
-%	\pause
-%	\begin{itemize}
-%		\item Deixis and anaphora not viewed as mutually exclusive indexical categories.
-%		\item Anadeixis (middle area) lie between the two poles of pure deixis and pure anaphora.
-%		\pause
-%		\item Anaphoric use of demonstratives (pronouns or NPs) is the best example of anadeixis
-%	\end{itemize}	
-%\end{frame}
-%
-%
-%
-%
-%\begin{frame}
-%	\frametitle{Demonstrative expressions}
-%	\begin{itemize}
-%	\item Demonstrative expressions could play a singular role given their double nature:
-%	\item Anaphoric dimension: they presuppose a reference frame where the intended referent is not new
-%	\item Deictic value: capable of orienting attention toward a referent with lower degree of accessibility
-%	\end{itemize}
-%\end{frame}
-%
-%
-%\subsection{Hypotheses}
-%
-%
-%\begin{frame}
-%	\frametitle{Hypotheses}
-%	The study sets out to examine the following:
-%	\begin{itemize}
-%		\item The demonstrative noun phrase (NP) that N, as an anadeictic expression, preferentially refers to the less salient referent in a discourse representation when used anaphorically, whereas
-%		\item The anaphoric pronoun he or she preferentially refers to the highly-focused referent.
-%	\end{itemize}
-%\end{frame}
-%
-%
-%\begin{frame}
-%	\frametitle{Hypotheses}
-%	The study sets out to examine the following:
-%	\begin{table}
-%	{\small
-%	\begin{tabular}{lrr}
-%		\hline
-%		& \multicolumn{2}{c}{Degree of saliency}\\
-%		\cline{2-3}
-%		Anaphor type & less salient & highly-focused\\
-%		\hline
-%		Demonstrative NP (that N) & $+$ & $-$ \\
-%		Pronouns (he/she) & $-$ & $+$ \\
-%		\hline
-%	\end{tabular}
-%	}
-%	\caption{Hypotheses in table form.}
-%	\end{table}
-%	\pause
-%	\begin{itemize}
-%		\item The demonstrative NP specifically orients processing towards a less salient referent when there is no gender cue to discriminate between different possible referents (experiment 2).
-%	\end{itemize}
-%\end{frame}
-%
-%
-%
-%%%%%%%%%%
-%
-%
-%\section{Materials}
-%
-%	
-%	
-%	
-%
-%
-%\begin{frame}
-%	\frametitle{Materials}
-%	\begin{itemize}
-%	\item In the end 24 texts
-%	\item Carefully designed: norming study to validate material
-%		\begin{itemize}
-%		\item No ambiguity
-%		\item Good acceptability
-%		\end{itemize}
-%	\item 40 filler items included so as to prevent strategic behaviour
-%	\end{itemize}
-%\end{frame}
-%	
-%
-%%%%%%%%%%%%%%%%%%%%
-%
-%
-%
-%\section{Tasks and results}
-%
-%
-%\subsection{Sentence completion task}
-%
-%\begin{frame}
-%	\frametitle{Sentence completion task}
-%	\begin{itemize}
-%		\item Precisely the one you did during the warm up.
-%		\item 20 participants (students)
-%		\item 24 experimental texts
-%		\item 40 filler items
-%	\end{itemize}
-%\end{frame}
-%
-%
-%\begin{frame}
-%	\frametitle{Results}
-%	\begin{itemize}
-%		\item 3rd person anaphoric pronoun (he/she) $\rightarrow$ Main character
-%		\item Demonstrative description (that N) $\rightarrow$ Subordinate character
-%	\end{itemize}
-%\end{frame}
-%
-%
-%
-%
-%\subsection{Experiment 2 (no gender cue)}
-%
-%\begin{frame}
-%	\frametitle{Experiment 2: design and procedure}
-%	\begin{itemize}
-%		\item 24 participants (students)		
-%		\item Self-paced reading task on computer screen
-%		\item 24 experimental texts and 40 fillers
-%		\item Two RT measures for target sentence:
-%			\begin{itemize}
-%			\item time to read anaphoric segment
-%			\item time to read the predicative segment
-%			\end{itemize}						
-%	\end{itemize}
-%\end{frame}
-%
-%
-%\begin{frame}
-%	\frametitle{Experiment 2: design and procedure}
-%	$2 \times 2$ design, with two factors crossed by manipulating the target sentences:	
-%	\begin{itemize}
-%	\item Character type
-%		\begin{itemize}
-%		\item Main character (Alice)
-%		\item Subordinate character (the waitress)
-%		\end{itemize}
-%	\item Anaphor type
-%		\begin{itemize}
-%		\item Anaphoric pronoun (she)
-%		\item Demonstrative description (that woman)
-%		\end{itemize}
-%	\end{itemize}
-%\end{frame}
-%
-%
-%
-%\begin{frame}
-%	\frametitle{Self-paced reading task}
-%	\begin{center}
-%	\$\$ READY \$\$
-%	\end{center}
-%\end{frame}
-%
-% 	
-%
-%\begin{frame}
-%	\frametitle{Self-paced reading task}
-%	\begin{center}
-%	At restaurants,
-%	\pause 
-%	Alice loves taking her time to read the menu.
-%	\end{center}
-%\end{frame}
-%
-%\begin{frame}
-%	\frametitle{Self-paced reading task}
-%	\begin{center}
-%	The last time,
-%	\pause
-%	she had hesitated so much between the two dishes that she
-%	\pause
-%	finally had to ask the waitress to help her
-%	\pause
-%	choose something from the menu.
-%	\end{center}
-%\end{frame}
-%
-%
-%\begin{frame}
-%	\frametitle{Self-paced reading task}
-%	\begin{center}
-%	In fact, that woman
-%	\pause
-%	simply ordered the dish of the day.
-%	\end{center}
-%\end{frame}
-%
-%\begin{frame}
-%	\frametitle{Self-paced reading task}
-%	\begin{center}
-%	\alert<1>{In fact, that woman} [anaphoric segment]
-%	\pause
-%	\alert<2>{simply ordered the dish of the day} [predicative segment].
-%	\end{center}
-%\end{frame}
-%
-%
-%\begin{frame}
-%	\frametitle{Probe the understanding of the target sentence}
-%	\begin{center}
-%	Did Alice go for a very expensive dish?
-%	\end{center}
-%\end{frame}
-%
-%
-%\begin{frame}
-%	\frametitle{Results}
-%	Predicative segment is the interesting part:
-%	\begin{itemize}
-%		\item $2 \times 2$ repeated-measures ANOVA
-%		\item No main effect of either character-type or anaphor-type
-%		\item But there was an interaction of these factors by participants and items\ldots
-%	\end{itemize}
-%\end{frame}
-%
-%
-%
-%
-%
-%
-%
-%
-%%%%%%%%%%%%%%
-%
-%
-%
-%\section{Summary and short discussion}
-%
-%
-%
-%\begin{frame}
-%	\frametitle{Summary}
-%	\begin{itemize}
-%		\item The demonstrative description preferentially accesses subordinate, less salient referents (compared to the anaphoric 3rd person pronoun)
-%		\pause
-%		\item Discourse function of anaphoric pronouns: signal referential continuity
-%		\pause
-%		\item Discourse function of demonstrative description: signal a new referential orientation, marking a break or a discontunity with the previous discourse context
-%		\pause
-%		\item In general, the authors' proposal gives a very important role to the form of the anaphor in directing the search for its referent
-%	\end{itemize}
-%\end{frame}
-%
-%
-%
-%\begin{frame}
-%	\frametitle{}
-%	\begin{center}
-%	Time for discussion\ldots
-%	\end{center}
-%\end{frame}
-%
-%
-%
-%\begin{frame}
-%	\frametitle{How generalizable are these results?}
-%	\begin{itemize}
-%	\item Garden-path effects are more common in written language than in speech.
-%	\item Would the same effects be found in speech?
-%	%check wikipedia article on garden-path
-%	\end{itemize}
-%\end{frame}
-%
-%
-%\begin{frame}
-%	\frametitle{What's the point of the study?}
-%	\begin{itemize}
-%	\item Ok then: demonstrative pronouns form an intermediate category between deixis and anaphora. And so what?
-%	\item What is this study contributing? Was the hypothesis controversial in any sense?
-%	\item I have the impression that an important point is how the process of retrieving the referent unfolds in time (cf. Sanford and Garrod's model). But not entirely clear what the results add to this question.
-%	\end{itemize}
-%\end{frame}
-%
-%
-%
-%%%%%%%%%%%%%%%%%%
-%
-%
-%%\begin{frame}
-%%	\frametitle{}
-%%\end{frame}
-%
-%
-%%%%%%%%%%%%%%%
-%
-%
-%\begin{frame}
-%	\frametitle{}
-%	\begin{center}
-%	The end
-%	\end{center}
-%\end{frame}
-%
-%
-%\end{document}
-%
