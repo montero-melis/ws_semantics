@@ -9,7 +9,15 @@
 
 \setbeamertemplate{footline}[frame number]
 
-
+% To avoid that backup slides are counted as slides during the presentation
+\newcommand{\backupbegin}{
+   \newcounter{framenumberappendix}
+   \setcounter{framenumberappendix}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+   \addtocounter{framenumberappendix}{-\value{framenumber}}
+   \addtocounter{framenumber}{\value{framenumberappendix}} 
+}
 
 \title{
 Word space models with a small data set
@@ -17,6 +25,7 @@ Word space models with a small data set
 \author{G. Montero~Melis}
 \institute{Centre for Research on Bilingualism \\Stockholm University}
 \date{11 June 2013}
+
 
 \begin{document}
 
@@ -40,7 +49,7 @@ Word space models with a small data set
 
 \begin{frame}
 	% Check if works!
-	\movie[width=15cm,height=10cm,poster,externalviewer]{click here}{pgm_paqtoi_01.avi}
+	\movie[width=10cm,height=7cm,poster,externalviewer]{Embedd video here}{pgm_paqtoi_01.avi}
 \end{frame}
 
 \begin{frame}
@@ -55,14 +64,15 @@ Word space models with a small data set
 \begin{frame}
 	\frametitle{An illustration: the event you just saw}
 	\begin{itemize}
-	\item Simple event, yet a lot of information
-	\item Speakers of different languages focus on different aspects
+	\item Simple motion event, yet a lot of information
+	\item Speakers of different languages will focus on different components of this event when describing it
 	\item Typical examples in three languages: \pause
 	\item English: \emph{He \alert{pushes} a box \alert{up} the roof.} \pause
 	\item Swedish: \emph{Han \alert{puttar} ett paket \alert{uppf\"{o}r} ett tak.} 
 		\\(equivalent to English)\pause
 	\item Spanish: \emph{\alert{Sube} una caja al tejado.}
-		\\`He ascends a box to the roof.'
+		\\`He ascends a box to the roof.'\pause
+	 \item Of course there is a great amount of variability
 	\end{itemize}
 \end{frame}
 
@@ -73,14 +83,14 @@ Word space models with a small data set
 		\begin{tabular}{r c c c}
 		Semantic component	& English/Swedish	& Spanish \\
 		\hline
-		Path: up			& Y				& Y \\
-		Manner in which agent \\moves box (pushing) & Y & N \\
+		Path (\emph{up})			& Y				& Y \\
+		Manner in which agent \\moves box (\emph{pushing}) & Y & \alert{N} \\
 		\end{tabular}
 	\caption{Comparison of information expressed across languages}
 	\end{table}
 	\pause
 	\begin{center}
-	These systematic differences is what I'm interested in!
+	This kind of systematic differences is what I'm interested in!
 	\end{center}
 \end{frame}
 
@@ -90,8 +100,8 @@ Word space models with a small data set
 	\begin{itemize}
 		\item When we speak about the world we don't just describe it objectively
 		\item Talking about something is choosing \emph{what to say} among many possibilities
-		\item Different languages guide their speakers towards different aspects of reality
-		\item Languages are not equivalent
+		\item Different languages guide their speakers towards expressing different aspects of reality
+		\item Languages are not fully equivalent
 	\end{itemize}
 \end{frame}
 
@@ -118,24 +128,208 @@ Word space models with a small data set
 
 
 
-%\begin{frame}
-%	\frametitle{}
-%	\begin{itemize}
-%	
-%	\end{itemize}
-%\end{frame}
+\begin{frame}
+	\frametitle{The study (at least part of it\ldots)}
+	\begin{description}
+		\item[Research question] Do native speakers of Swedish pick out different semantic components than native speakers of Spanish when describing events?\pause
+		\item[Case in point] Caused motion events, in which an agent causes an object to move, e.g. `He pulls a chair into the cave.' 
+		\item[Participants] Approx. 80 participants (40 per language)
+		\item[Materials] 32 target videoclips, 7 distractor items, one training item
+		\item[Procedure] Participants see each videoclip and describe it orally
+%		\item[Prompt] `What happened? Focus on the action.'
+	\end{description}
+\end{frame}
 
 
-\section{The data}
+\section{Approach and data}
 
 \begin{frame}
-	\frametitle{}
+	\frametitle{Vector space model}
 	\begin{itemize}
-	\item 
+		\item Each videoclip is indexed by a participant's description
+		\item Average description length: 10 words
+		\item Each description is represented as a vector containing information about the words used in the description
+		\item The $m$ distinct words and the $n$ videoclips are represented in a term-by-videoclip matrix
+		\item In practice, roughly a $1000 \times 40$ matrix (unique words$\times$videoclips)
 	\end{itemize}
 \end{frame}
 
+
+\begin{frame}
+	\frametitle{Term-by-videoclip matrix for one participant}
+	\begin{table}[ht]
+		\begin{center}
+		\begin{tabular}{rrrrr}
+		  \hline
+		 & dis\_avarou & pge\_tabgro & pgt\_panrue & prt\_rourue \\ 
+		  \hline
+		\aa ker &   1 &   0 &   0 &   0 \\ 
+		  \"{o}ver &   0 &   0 &   1 &   1 \\ 
+		  berget &   0 &   0 &   0 &   0 \\ 
+		  bl\aa &   1 &   0 &   0 &   0 \\ 
+		  bollen &   2 &   0 &   0 &   0 \\ 
+		  bord &   0 &   1 &   0 &   0 \\ 
+		  drar &   0 &   0 &   1 &   0 \\ 
+		  en &   0 &   0 &   1 &   0 \\ 
+		  ett &   0 &   1 &   0 &   1 \\ 
+		  frukt &   0 &   0 &   1 &   0 \\ 
+		  gatan &   0 &   0 &   1 &   1 \\ 
+		  grottan &   0 &   1 &   0 &   0 \\ 
+		 \hline
+		\end{tabular}
+		\end{center}
+		\caption{Sample data from term-by-videoclip matrix (one participant)}
+	\end{table}
+\end{frame}
+
+
+
+\begin{frame}
+	\frametitle{Parallel texts}
+	\begin{itemize}
+		\item Aligned parallel data: the same document (i.e. document with the same content) is available in several languages \pause
+		\item Here, each description of a videoclip is available in Swedish and Spanish 
+	 	\item Actually, for each videoclip there are 40 Swedish and 40 Spanish descriptions
+	 	\item Data can be grouped by language to yield two term-by-videoclip matrices
+	 	\item These represent ``average'' descriptions for each videoclip in each language
+	 	\item NB: These two aggregated matrices are still \emph{very} sparse!
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Term-by-videoclip matrix for all Swedish participants}
+	\begin{table}[ht]
+		\begin{center}
+		\begin{tabular}{rrrrr}
+		  \hline
+		 & tgm\_sactoi & tgt\_cherue & pge\_tabgro & tge\_chamai \\ 
+		  \hline
+		iv\"{a}g &   0 &   0 &   0 &   0 \\ 
+		  lilla &   0 &   0 &   0 &   0 \\ 
+		  flyttar &   0 &   0 &   1 &   0 \\ 
+		 upp &   4 &   8 &   0 &  12 \\ 
+		  gul &   0 &   0 &   0 &   0 \\ 
+		  bok &   0 &   0 &   0 &   0 \\ 
+		  stolen &   0 &   0 &   0 &   3 \\ 
+		   ett &   0 &   1 &   3 &   0 \\ 
+		  krockade &   2 &   0 &   0 &   0 \\ 
+		  vid &   0 &   0 &   0 &   0 \\ 
+		   \hline
+		\end{tabular}
+		\end{center}
+		\caption{Sample data from term-by-videoclip matrix (all Swedish participants)}
+	\end{table}
+\end{frame}
+
+
+
+
 \section{Some analyses}
+
+
+\begin{frame}
+	\frametitle{The basic question}
+	\begin{center}
+	Do events cluster differently in the two languages?
+	\end{center}
+	\pause
+	\begin{itemize}
+	\item Point of departure for analysis is the term-by-videoclip matrix
+	\item However, this matrix can be analyzed in different ways
+	\item I draw my tools from latent semantic analysis (LSA)\ldots
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Latent semantic analysis (LSA)}
+	\begin{itemize}
+		\item Theory of meaning based on statistical computations of text data (e.g. Deerwester et al. 1990; Landauer 2007)
+		\item LSA ``uncovers the underlying or `latent' semantic structure'' in the data by removing noise (Martin \& Berry 2007: 36)
+		\item It handles two important sources of noise: synonymy (two words with same meaning) and polysemy (a word with more than one meaning)
+		\item In practice, LSA creates a \textbf{semantic space}, where both terms and documents co-exist \pause
+		\item Mathematically based on a truncated Singular Value Decomposition or two-way factor analysis
+		\item Computationally expensive, but computational issues are not a big concern here
+		\item R-package `lsa'
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+Some quick-and-dirty exploratory analyses\ldots
+\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Closest neighbours to \emph{sube} (Sp., `ascends')}
+	\begin{table}[ht]
+\begin{center}
+\begin{tabular}{rr}
+  \hline
+ & cosine similarity \\ 
+  \hline
+uppf\"{o}r & 0.97 \\ 
+  upp & 0.95 \\ 
+  subido & 0.94 \\ 
+  subiendo & 0.88 \\ 
+  arriba & 0.86 \\ 
+  asciende & 0.83 \\ 
+  encima & 0.82 \\ 
+  hustak & 0.82 \\ 
+     \hline
+\end{tabular}
+\end{center}
+\caption{Closest neighbours to \emph{sube} (Sp., `ascends'), threshold $0.8$}
+\end{table}
+\begin{itemize}
+	 \item Based on all data collapsed for each document
+	 \item I.e. Here each document contains all the words used by all participants to describe that event
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Closest neighbours to \emph{drog} (Sw., `pulled', `drew')}
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{rr}
+  \hline
+ & cosine similarity \\ 
+  \hline
+drar & 0.97 \\ 
+  efter & 0.90 \\ 
+  arrastrando & 0.89 \\ 
+  tirando & 0.87 \\ 
+  arrastra & 0.85 \\ 
+   \hline
+\end{tabular}
+\end{center}
+\caption{Closest neighbours to \emph{drog} (Sw., `pulled', `drew'), threshold $0.8$}
+\end{table}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Multidimensional scaling (MDS) of similarity among videoclips, grouped by language}
+	\begin{figure}
+		\centering
+		\includegraphics[width=.65\textwidth]{MDS}
+		\caption{Plots of classical MDS in two dimensions of the distance between documents as measured by cosine similarity}
+	\end{figure}
+	\begin{itemize}
+	\item First (horizontal) dimension clearly distinguishes distractor items (left) from target items (right)
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Sum-up}
+	 \begin{itemize}
+	 	\item A series of analyses are interpretable: indicates that the approach is sensible
+	 	\item Great amount of semantic overlap between both languages
+	 	\item Some differences are found but it remains difficult to evaluate their significance, both statistical and `true' significance
+	 \end{itemize}
+\end{frame}
 
 
 
@@ -143,17 +337,155 @@ Word space models with a small data set
 
 \begin{frame}
 	\frametitle{Validity of the approach}
+	\begin{itemize}
+	\item People who use these methods normally do not pose this kind of questions
+	\item People who ask this kind of questions generally do not use these methods
+	\item Do you see any flagrant pitfall in this approach
+	\end{itemize}
 \end{frame}
 
 
 \begin{frame}
 	\frametitle{Issues related to size of data set}
+	\begin{itemize}
+	\item Word space models like LSA are usually implemented with huge corpora, ``representative of language''
+	\item My data set is small but highly structured -- it contains exactly the information I'm interested in
+	\item Is this a trade-off that can work?
+	\end{itemize}
 \end{frame}
 
+
+\begin{frame}
+	\frametitle{Significance issues}
+	\begin{itemize}
+		\item How to assess statistical significance?
+		\item How to judge whether differences are noteworthy or not?
+		\item Bound to be exploratory or could there be hypothesis testing (cf. Sverker Sikstr\"{o}m)
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Additional coding?}
+	\begin{itemize}
+		\item Avoiding interfering with the data is what motivates this approach in the first place, but \ldots
+		\item Should data coding be applied, e.g. coding for semantic categories such as `path'  component (e.g., \emph{across}) or `manner' component (e.g., \emph{pulls})
+		\item On what ground should these decisions be made?
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Technical issues}
+	\begin{itemize}
+	\item Parameter setting for LSA or similar
+	\item Choice of number of dimensions
+	\item Stop lists
+	\item Weighting schemes
+	\end{itemize}
+\end{frame}
+
+
+
+
+\appendix
+\backupbegin
 
 \begin{frame}
 	\frametitle{}
 \end{frame}
 
+\begin{frame}
+	\frametitle{More about the data set}
+	\begin{table}[ht]
+		\begin{center}
+		\begin{tabular}{rr}
+		  \hline
+		  Vocabulary & 968\\
+		  Documents & 39 \\
+		  frequencies not zero & 4024 \\
+		  zero frequencies & 33728\\
+		  max term length & 14\\
+		  non-alphanumerics in terms &  0 \\
+		   \hline
+		   \hline
+		\end{tabular}
+		\end{center}
+		\caption{Information about the term-by-videoclip matrix of all participants (only half of participants)}
+	\end{table}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Multidimensional scaling (MDS) of similarity among videoclips, grouped by language (targets only)}
+	\begin{figure}
+		\centering
+		\includegraphics[width=.65\textwidth]{MDS_targets}
+		\caption{Plots of classical MDS in two dimensions of the distance between documents as measured by cosine similarity; target items only}
+	\end{figure}
+	\begin{itemize}
+	\item Differences between languages are not clear at first sight.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Hierarchical cluster analysis of Spanish data (Ward's method, two main clusters)}
+	\begin{figure}
+	\includegraphics[width=.75\textwidth]{hclust_spa_k2}
+	\end{figure}
+	\begin{itemize}
+	\item Events of going \textbf{down} (left cluster) vs. rest of directions (right cluster)
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+		\frametitle{Hierarchical cluster analysis of Swedish data (Ward's method, two main clusters)}
+		\begin{figure}
+	\includegraphics[width=.75\textwidth]{hclust_swe_k2}
+	\end{figure}
+	\begin{itemize}
+	\item Events of going \textbf{across} (left cluster) vs. rest of directions (right cluster)
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Hierarchical cluster analysis of Spanish data (Ward's method, seven main clusters)}
+	\begin{figure}
+	\includegraphics[width=\textwidth]{hclust_spa_k7}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+		\frametitle{Hierarchical cluster analysis of Swedish data (Ward's method, seven main clusters)}
+		\begin{figure}
+	\includegraphics[width=\textwidth]{hclust_swe_k7}
+	\end{figure}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Example of aggregated document, all Swedish descriptions included (pgm\_paqtoi)}
+	\begin{verbatim}
+	Hopi/skjuter/upp/ett/paket/upp/på/ett/tak/puttade/
+	ett/paket/upp/på/ett/tak/Hopi/puttar/ett/paket/uppför/
+	ett/sluttande/tak/han/puttar/upp/ett/stort/paket/
+	uppför/taket/han/drar/upp/ett/paket/för/ett/tak/han/
+	gick/upp/med/ett/stort/paket/eh/för/ett/hustak/han/
+	puttar/ett/eh/paket/uppför/ett/tak/Hopi/eh/skjuter/
+	paketet/uppför/husets/tak/han/skjuter/ett/stort/
+	paket/uppför/hustaket/nu/puttade/han/upp/ett/paket/uppför/
+	taket/eh/Hopi/sköt/paketet/uppför/taket/och/nu/skjuter/
+	han/ett/paket/uppför/en/husvägg/han/sköt/upp/ett/paket/
+	på/ett/tak/eh/han/puttade/upp/ett/eh/lila/paket/för/samma/
+	hustak/som/han/tidigare/puttade/upp/en/badring/på/eh/
+	Hopi/skjuter/skjuter/upp/ett/paket/eh/uppför/ett/
+	lutande/tak/mm/Hopi/sköt/ett/eh/lila/paket/upp/till/
+	eh/taknocken/på/ett/hus/
+	\end{verbatim}
+\end{frame}
+
+
+\backupend
 
 \end{document}
